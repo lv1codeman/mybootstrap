@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hello, Bootstrap Table!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css">
+    <style type="text/css">
+    .mybd {
+        border: 3px solid #24C168;
+    }
+
+    .topbanner {
+        text-align: center;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    table>thead {
+        font-size: 16pt;
+        font-weight: bold;
+        background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%);
+        text-align: center;
+    }
+
+    table>tbody>tr>td {
+        font-size: 14pt;
+        text-align: center;
+    }
+
+    .container-bg {
+        height: 100vh;
+        background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+    }
+    </style>
+</head>
+
+<body>
+    <div id="mybtn" class="btn btn-primary d-none">click</div>
+    <div class="container-fluid container-bg">
+        <div class="row">
+            <div class="col-12 col-md-1"></div>
+            <div class="col-12 col-md-10">
+                <div class="topbanner"><img src="./img/banner.png" alt="banner" style='height: 100%; width: 50%; object-fit: contain'></div>
+                <table id="table" data-locale="zh-TW" data-search="true" data-search-highlight="true" data-height="600" data-pagination="true" data-page-size="10" data-pagination-pre-text="上一頁" data-pagination-next-text="下一頁" data-show-export="true" data-show-fullscreen="true" data-show-toggle="true" data-export-data-type="all">
+                    <thead>
+                        <tr>
+                            <th data-field="prizedate">得獎日期</th>
+                            <th data-field="prizefrom">比賽名稱</th>
+                            <th data-field="prizewinner">得獎人</th>
+                            <th data-field="ranking">名次</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="col-12 col-md-1"></div>
+        </div>
+    </div>
+    <!-- script block -->
+    <!-- script block -->
+    <!-- script block -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table-locale-all.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/extensions/export/bootstrap-table-export.min.js"></script>
+    <script>
+    var $table = $('#table')
+
+    $(function() {
+        var data = [{
+                'prizedate': '2021/12/20',
+                'prizefrom': '2020世大運錦標賽世大運錦標賽世大運錦標賽世大運錦標賽世大運錦標賽',
+                'prizewinner': '中小六',
+                'ranking': '1'
+            },
+            {
+                'prizedate': '2021/2/2',
+                'prizefrom': '2020台北運動大會',
+                'prizewinner': '劉麥倫',
+                'ranking': '5'
+            },
+            {
+                'prizedate': '2021/7/22',
+                'prizefrom': '2020全彰運',
+                'prizewinner': '張良靜',
+                'ranking': '8'
+            },
+            {
+                'prizedate': '2021/3/10',
+                'prizefrom': '2020東京奧運',
+                'prizewinner': '林斯梅',
+                'ranking': '7'
+            },
+            {
+                'prizedate': '2021/1/20',
+                'prizefrom': '2020新北程式設計比賽',
+                'prizewinner': '邱柔家',
+                'ranking': '3'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '2020台南美術比賽',
+                'prizewinner': '請大家',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '工作網路幾天參與一遍',
+                'prizewinner': '肌膚認',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '飛機分類是什麼花園頻',
+                'prizewinner': '鐵通學',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '召開任何人會議保留規',
+                'prizewinner': '資格改',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '常見企業採訪上海戀愛',
+                'prizewinner': '存在模',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '一路黑色小組客戶一片',
+                'prizewinner': '白色更',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '和諧下載領先大聲統一',
+                'prizewinner': '評論費',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '治理休閒許可證推廣做',
+                'prizewinner': '服務器',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '司機提前下了評級十大',
+                'prizewinner': '和你人',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '集體一身距離四周一邊',
+                'prizewinner': '明確徹',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '互動大陸新浪怎麼樣費',
+                'prizewinner': '格式真',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '批評歡迎您基本上很好',
+                'prizewinner': '對外依',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '警察是否是指父母運行',
+                'prizewinner': '女孩子',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '房子無論請求未知哈爾',
+                'prizewinner': '設定退',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '姐姐線路如下收藏形象',
+                'prizewinner': '中文版',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '東莞接口你會採購迅速',
+                'prizewinner': '依然後',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '而是浪費完整導演指出',
+                'prizewinner': '開關突',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '他說這種音樂些什麼按',
+                'prizewinner': '幫助任',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '然而事務可能會總體治',
+                'prizewinner': '共和國',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '瞭解一般檢索依舊上路',
+                'prizewinner': '各地指',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '南京調整考研得知高校',
+                'prizewinner': '是從這',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '是這樣東北各自分配到',
+                'prizewinner': '主動人',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '標誌預期標籤公安營養',
+                'prizewinner': '裝置他',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '轉移遊客打電話規劃回',
+                'prizewinner': '加油工',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '沒有兒童各個運動老闆',
+                'prizewinner': '正確清',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '很多人一張點頭還沒服',
+                'prizewinner': '設定永',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '能不能行情狀況這個問',
+                'prizewinner': '你要都',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '夫人信譽隨着四周難道',
+                'prizewinner': '物品江',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '大學觀看女孩之中會員',
+                'prizewinner': '所以跟',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '資本隊伍您是青島價格',
+                'prizewinner': '從此習',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '答應設施應該懂得好像',
+                'prizewinner': '群發網',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '大陸農民女性保護房間',
+                'prizewinner': '很多資',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '認識進一步什麼樣既然',
+                'prizewinner': '模型危',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '列表主演團體合作可以',
+                'prizewinner': '成人面',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '肌膚妻子會在順利物業',
+                'prizewinner': '角度寫',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '網上成員課程革命存儲',
+                'prizewinner': '禮品我',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '群發不必幹什麼下午之',
+                'prizewinner': '可惜一',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '快車理由適用於距離而',
+                'prizewinner': '官員實',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '實行範圍傳說認定偉大',
+                'prizewinner': '智能彼',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '返回下午對著農業說什',
+                'prizewinner': '百萬疾',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '走勢始終鈴聲下載措施',
+                'prizewinner': '最好或',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '在那裡都是有機會進程',
+                'prizewinner': '措施習',
+                'ranking': '2'
+            },
+            {
+                'prizedate': '2021/5/20',
+                'prizefrom': '很少專門平衡商標這裡',
+                'prizewinner': '生活決',
+                'ranking': '2'
+            }
+        ];
+        $table.bootstrapTable({ data: data });
+        console.log('showsomething');
+
+
+        if ($(window).width() < 768) {
+            $table.bootstrapTable('toggleView');
+        }
+
+
+    });
+
+    var changesize = 0;
+    $(window).resize(function() {
+        if ($(window).width() < 768 && changesize == 0) {
+            $table.bootstrapTable('toggleView');
+            changesize = changesize + 1;
+        } else if (($(window).width() >= 768 && changesize == 1)) {
+            $table.bootstrapTable('toggleView');
+            changesize = changesize - 1;
+        }
+    });
+
+
+
+    $("#mybtn").click(function() {
+        $table.bootstrapTable('toggleView');
+    });
+    </script>
+    <!-- script block -->
+    <!-- script block -->
+    <!-- script block -->
+</body>
+
+</html>
