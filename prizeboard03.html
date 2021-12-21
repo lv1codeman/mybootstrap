@@ -20,11 +20,24 @@
         margin-bottom: 2rem;
     }
 
-    table>thead {
+    table>thead>tr>th {
         font-size: 16pt;
         font-weight: bold;
         background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%);
         text-align: center;
+    }
+
+    table>thead>tr>th:nth-child(1) {
+        width: 10%;
+    }
+    table>thead>tr>th:nth-child(2) {
+        width: 60%;
+    }
+    table>thead>tr>th:nth-child(3) {
+        width: 25%;
+    }
+    table>thead>tr>th:nth-child(4) {
+        width: 5%;
     }
 
     table>tbody>tr>td {
@@ -45,8 +58,8 @@
         <div class="row">
             <div class="col-12 col-md-1"></div>
             <div class="col-12 col-md-10">
-                <div class="topbanner"><img src="./img/banner.png" alt="banner" style='height: 100%; width: 50%; object-fit: contain'></div>
-                <table id="table" data-locale="zh-TW" data-search="true" data-search-highlight="true" data-height="600" data-pagination="true" data-page-size="10" data-page-list="[5, 10, 20, 50, ALL]" data-pagination-pre-text="上一頁" data-pagination-next-text="下一頁" data-show-export="true" data-show-fullscreen="true" data-show-toggle="true" data-export-data-type="all" data-sort-name="prizedate" data-sort-order="desc">
+                <div class="topbanner"><img src="./img/banner.png" alt="banner" style='height: 100%; width: 40%; object-fit: contain'></div>
+                <table id="table" data-locale="zh-TW" data-search="true" data-search-highlight="true" data-height="700" data-pagination="true" data-page-size="10" data-page-list="[5, 10, 20, 50, ALL]" data-pagination-pre-text="上一頁" data-pagination-next-text="下一頁" data-show-export="true" data-show-fullscreen="true" data-show-toggle="true" data-export-data-type="all" data-sort-name="prizedate" data-sort-order="desc">
                     <thead>
                         <tr>
                             <th data-field="prizedate" data-sortable="true">得獎日期</th>
