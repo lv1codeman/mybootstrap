@@ -1,1 +1,1 @@
-Bootstrap-table practice
+Bootstrap-table practice 2021
