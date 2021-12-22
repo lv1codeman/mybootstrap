@@ -17,17 +17,10 @@
     .topbanner {
         text-align: center;
         margin-top: 2rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 2rem;
     }
 
-    table>thead>tr>th {
-        font-size: 16pt;
-        font-weight: bold;
-        background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%);
-        text-align: center;
-
-    }
-
+    /*固定表格欄寬*/
     table>thead>tr>th:nth-child(1) {
         width: 10%;
     }
@@ -48,20 +41,51 @@
         margin-left: 20px;
     }
 
-    table>tbody>tr>td {
+    table>thead>tr>th:nth-child(n) {
+        /* font-size: 16pt;
+        font-weight: bold;
+        background-color: #ffbead;
+        text-align: center;*/
+
+    }
+
+    /*override bootstrap-table css*/
+    .bootstrap-table .fixed-table-container.fixed-height .table {
+        border-top: none;
+        border-bottom: none;
+    }
+
+    .bootstrap-table .fixed-table-container.fixed-height .table thead th {
+        font-size: 16pt;
+        font-weight: bold;
+        background-color: #ffbead;
+        text-align: center;
+        border: 1px solid #b5283f;
+    }
+
+    /*override card-view css*/
+    .bootstrap-table .fixed-table-container.fixed-height.has-card-view {
+        border-top: none;
+        border-bottom: none;
+    }
+
+    table>tbody>tr>td:nth-child(n) {
         font-size: 14pt;
         text-align: center;
         vertical-align: middle;
+        border: 1px solid #b5283f;
     }
 
     .container-bg {
         height: 100vh;
         background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+
     }
 
     /*data-buttons-class="mybtnclass" 自訂button樣式，影響整個table的btn物件*/
     .btn-mybtnclass {
-        background-color: #40A76C;
+        background-color: #fce4de;
+        border: 2px solid #d1c4c0;
     }
 
     /*自訂pagination樣式*/
@@ -85,7 +109,7 @@
         <div class="row">
             <div class="col-12 col-md-1"></div>
             <div class="col-12 col-md-10">
-                <div class="topbanner"><img src="./img/banner.png" alt="banner" style='height: 100%; width: 30%; object-fit: contain'></div>
+                <div class="topbanner"><img src="./img/banner.png" alt="banner" style='height: 100%; width: 40%; object-fit: contain'></div>
                 <!-- 
                     data-show-export="true" 產生匯出按鈕及功能
                     data-export-data-type="all"  匯出時匯出全部記錄
@@ -453,7 +477,7 @@
                 text: 'Excel(.xlsx)',
                 icon: 'fa-download',
                 event: function() {
-                    $table.tableExport({type:'xlsx'});
+                    $table.tableExport({ type: 'xlsx' });
                 },
                 attributes: {
                     title: '下載Excel(.xlsx)'
