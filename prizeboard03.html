@@ -58,9 +58,11 @@
     .bootstrap-table .fixed-table-container.fixed-height .table thead th {
         font-size: 16pt;
         font-weight: bold;
-        background-color: #ffbead;
+        /*標題欄背景*/
+        background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%);
         text-align: center;
-        border: 1px solid #b5283f;
+        /*標題欄格線*/
+        border: 1px solid #D7B7BC;
     }
 
     /*override card-view css*/
@@ -73,32 +75,55 @@
         font-size: 14pt;
         text-align: center;
         vertical-align: middle;
-        border: 1px solid #b5283f;
+        /*內容框線*/
+        border: 1px solid #D7B7BC;
+        
     }
 
     .container-bg {
         height: 100vh;
+        /*容器背景*/
         background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
 
     }
 
-    /*data-buttons-class="mybtnclass" 自訂button樣式，影響整個table的btn物件*/
+    /*自訂button樣式，影響整個table的btn物件 data-buttons-class="mybtnclass" */
     .btn-mybtnclass {
-        background-color: #fce4de;
-        border: 2px solid #d1c4c0;
+        /*按鈕背景色*/
+        background-color: #9fedbf;
+        /*按鈕邊界色*/
+        border: 2px solid #8BA6E9;
+        /*按鈕文字色*/
+        color: #3e805a;
+    }
+    .btn-mybtnclass:hover {
+        /*按鈕文字色*/
+        color: black;
     }
 
-    /*自訂pagination樣式*/
+    /*右下角pagination樣式*/
     .pagination>.page-item>.page-link {
-        color: red;
-        background-color: #40A76C;
+        /*pagination文字色*/
+        color: black;
+        /*pagination背景色*/
+        background-color: white;
+        /*pagination框線色*/
+        border-color: #8BA6E9;
     }
 
-    /*自訂pagination active樣式*/
+    /*右下角pagination active樣式*/
     .pagination>.page-item.active>.page-link {
         color: black;
-        background-color: #40A76C;
-        border-color: red;
+        background-color: #7E96C4;
+        border-color: #BED0F4;
+    }
+
+    /*左下角pagination text*/
+    .fixed-table-pagination>.pagination-detail>.page-list>.btn-group>.btn-mybtnclass.dropdown-toggle {
+        /*左下角pagination text背景色*/
+        background-color: white;
+        /*左下角pagination text文字色*/
+        color: black;
     }
     </style>
 </head>
