@@ -92,18 +92,23 @@
     /*自訂button樣式，影響整個table的btn物件 data-buttons-class="mybtnclass" */
     .btn-mybtnclass {
         /*按鈕背景色*/
-        background-color:#ffffff; /*#2366b0;*/
+        background-color: #ffffff;
+        /*#2366b0;*/
         /*按鈕邊界色*/
-        border: 2px solid #f5debc; /*#8BA6E9;*/
+        border: 2px solid #f5debc;
+        /*#8BA6E9;*/
         /*按鈕文字色*/
-        color: #3e805a;/*#3e805a;*/
+        color: #3e805a;
+        /*#3e805a;*/
     }
 
     .btn-mybtnclass:hover {
         /*按鈕背景色*/
-        background-color:#f5debc; /*#2366b0;*/
+        background-color: #f5debc;
+        /*#2366b0;*/
         /*按鈕邊界色*/
-        border: 2px solid #ffffff; /*#8BA6E9;*/
+        border: 2px solid #ffffff;
+        /*#8BA6E9;*/
         /*按鈕文字色*/
         color: black;
     }
@@ -115,14 +120,17 @@
         /*pagination背景色*/
         background-color: white;
         /*pagination框線色*/
-        border-color:#f5debc; /*#8BA6E9;*/
+        border-color: #f5debc;
+        /*#8BA6E9;*/
     }
 
     /*右下角pagination active樣式*/
     .pagination>.page-item.active>.page-link {
         color: black;
-        background-color: #f4e4d1; /*#7E96C4;*/
-        border-color: #f5debc; /*#BED0F4;*/
+        background-color: #f4e4d1;
+        /*#7E96C4;*/
+        border-color: #f5debc;
+        /*#BED0F4;*/
     }
 
     /*左下角pagination text*/
@@ -132,6 +140,16 @@
         /*左下角pagination text文字色*/
         color: black;
     }
+
+
+    .box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .bannertext{
+        font-size: 30pt;
+    }
     </style>
 </head>
 
@@ -139,9 +157,21 @@
     <div id="mybtn" class="btn btn-primary d-none">click</div>
     <div class="container-fluid container-bg">
         <div class="row">
+            <div class="col-12 col-md-3 "></div>
+            <div class="col-12 col-md-6 px-4">
+                <div class="topbanner">
+                    <div class="box">
+                        <img src="./img/leftleaf-removebg.png" height="150px">
+                        <span class="bannertext">國立彰化師範大學<br/>校園榮譽榜</span>
+                        <img src="./img/rightleaf-removebg.png" height="150px">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3"></div>
+        </div>
+        <div class="row">
             <div class="col-12 col-md-1"></div>
             <div class="col-12 col-md-10">
-                <div class="topbanner"><img src="./img/banner.png" alt="banner" style='height: 100%; width: 40%; object-fit: contain'></div>
                 <!-- 
                     data-show-export="true" 產生匯出按鈕及功能
                     data-export-data-type="all"  匯出時匯出全部記錄
