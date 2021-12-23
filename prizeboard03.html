@@ -49,6 +49,12 @@
 
     }
 
+    .container-bg {
+        height: 100vh;
+        /*容器背景*/
+        background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+    }
+
     /*override bootstrap-table css*/
     .bootstrap-table .fixed-table-container.fixed-height .table {
         border-top: none;
@@ -59,10 +65,11 @@
         font-size: 16pt;
         font-weight: bold;
         /*標題欄背景*/
-        background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%);
+        background: rgb(228, 141, 112);
+        background: linear-gradient(0deg, rgba(228, 141, 112, 1) 0%, rgba(245, 172, 120, 1) 53%, rgba(228, 141, 112, 1) 100%);
         text-align: center;
         /*標題欄格線*/
-        border: 1px solid #D7B7BC;
+        border: 1px solid #E48D70;
     }
 
     /*override card-view css*/
@@ -76,26 +83,22 @@
         text-align: center;
         vertical-align: middle;
         /*內容框線*/
-        border: 1px solid #D7B7BC;
-        
-    }
-
-    .container-bg {
-        height: 100vh;
-        /*容器背景*/
-        background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+        border: 1px solid #EC8A6E;
 
     }
+
+
 
     /*自訂button樣式，影響整個table的btn物件 data-buttons-class="mybtnclass" */
     .btn-mybtnclass {
         /*按鈕背景色*/
-        background-color: #9fedbf;
+        background-color: #2366b0;
         /*按鈕邊界色*/
         border: 2px solid #8BA6E9;
         /*按鈕文字色*/
         color: #3e805a;
     }
+
     .btn-mybtnclass:hover {
         /*按鈕文字色*/
         color: black;
