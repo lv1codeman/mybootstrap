@@ -46,14 +46,12 @@
     }
 
     /*背景圖放body避免手機轉橫向時背景圖無法完整顯示*/
-    body{
+    body {
         background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
     }
 
     .container-bg {
         height: 100vh;
-        /*容器背景*/
-        
     }
 
     /*override bootstrap-table css*/
@@ -87,8 +85,6 @@
         border: 1px solid #EC8A6E;
 
     }
-
-
 
     /*自訂button樣式，影響整個table的btn物件 data-buttons-class="mybtnclass" */
     .btn-mybtnclass {
@@ -553,6 +549,9 @@
 
         if ($(window).width() < 768) {
             $table.bootstrapTable('toggleView');
+            console.log('sss' + $("button[name='btntoggle']").text());
+            $("button[name='btntoggle']").text('');
+            $("button[name='btntoggle']").addClass("fa fa-toggle-on");
         }
     });
 
@@ -572,6 +571,8 @@
         $table.bootstrapTable('toggleView');
     });
 
+    var $flag_btntoggle = 0;
+
     // table btn script
     function buttons() {
         return {
@@ -590,24 +591,38 @@
                 icon: 'fa-toggle-off',
                 event: function() {
                     $table.bootstrapTable('toggleView');
-
+                    console.log('log: btntoggle, $flag_btntoggle:'+$flag_btntoggle);
                     var thisbtn = $("button[name='btntoggle']");
                     // 不知道為什麼一開始的文字是" 切換成卡片"，前面會多一個空格
-                    if (thisbtn.text() == ' 切換成卡片') {
-                        thisbtn.text('切換成表格');
+
+
+                    if ($flag_btntoggle == 0) {
                         thisbtn.removeClass("fa fa-toggle-off");
                         thisbtn.addClass("fa fa-toggle-on");
-                    } else {
-                        if (thisbtn.text() == '切換成表格') {
-                            thisbtn.text('切換成卡片');
-                            thisbtn.removeClass("fa fa-toggle-on");
-                            thisbtn.addClass("fa fa-toggle-off");
-                        } else if (thisbtn.text() != '切換成表格') {
-                            thisbtn.text('切換成表格');
-                            thisbtn.removeClass("fa fa-toggle-off");
-                            thisbtn.addClass("fa fa-toggle-on");
-                        }
+                        $flag_btntoggle = $flag_btntoggle +1;
+                    }else{
+                        thisbtn.removeClass("fa fa-toggle-on");
+                        thisbtn.addClass("fa fa-toggle-off");
+                        $flag_btntoggle = $flag_btntoggle -1;
                     }
+
+
+
+                    // if (thisbtn.text() == ' 切換成卡片') {
+                    //     thisbtn.text('切換成表格');
+                    //     thisbtn.removeClass("fa fa-toggle-off");
+                    //     thisbtn.addClass("fa fa-toggle-on");
+                    // } else {
+                    //     if (thisbtn.text() == '切換成表格') {
+                    //         thisbtn.text('切換成卡片');
+                    //         thisbtn.removeClass("fa fa-toggle-on");
+                    //         thisbtn.addClass("fa fa-toggle-off");
+                    //     } else if (thisbtn.text() != '切換成表格') {
+                    //         thisbtn.text('切換成表格');
+                    //         thisbtn.removeClass("fa fa-toggle-off");
+                    //         thisbtn.addClass("fa fa-toggle-on");
+                    //     }
+                    // }
                 },
                 attributes: {
                     title: '切換顯示模式'
