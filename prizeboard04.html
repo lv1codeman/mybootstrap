@@ -83,11 +83,7 @@
         text-align: center;
         vertical-align: middle;
         /*內容框線*/
-<<<<<<< HEAD
         border: 1px solid #EC8A6E;
-=======
-        border: 1px solid white;
->>>>>>> master/master
 
     }
 
@@ -96,14 +92,18 @@
     /*自訂button樣式，影響整個table的btn物件 data-buttons-class="mybtnclass" */
     .btn-mybtnclass {
         /*按鈕背景色*/
-        background-color: #2366b0;
+        background-color:#ffffff; /*#2366b0;*/
         /*按鈕邊界色*/
-        border: 2px solid #8BA6E9;
+        border: 2px solid #f5debc; /*#8BA6E9;*/
         /*按鈕文字色*/
-        color: #3e805a;
+        color: #3e805a;/*#3e805a;*/
     }
 
     .btn-mybtnclass:hover {
+        /*按鈕背景色*/
+        background-color:#f5debc; /*#2366b0;*/
+        /*按鈕邊界色*/
+        border: 2px solid #ffffff; /*#8BA6E9;*/
         /*按鈕文字色*/
         color: black;
     }
@@ -115,14 +115,14 @@
         /*pagination背景色*/
         background-color: white;
         /*pagination框線色*/
-        border-color: #8BA6E9;
+        border-color:#f5debc; /*#8BA6E9;*/
     }
 
     /*右下角pagination active樣式*/
     .pagination>.page-item.active>.page-link {
         color: black;
-        background-color: #7E96C4;
-        border-color: #BED0F4;
+        background-color: #f4e4d1; /*#7E96C4;*/
+        border-color: #f5debc; /*#BED0F4;*/
     }
 
     /*左下角pagination text*/
@@ -513,6 +513,16 @@
                 },
                 attributes: {
                     title: '下載Excel(.xlsx)'
+                }
+            },
+            btntoggle: {
+                text: 'show card',
+                icon: 'fa-plus',
+                event: function() {
+                    $table.bootstrapTable('toggleView');
+                },
+                attributes: {
+                    title: 'bnanananan'
                 }
             }
         }
