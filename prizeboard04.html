@@ -14,37 +14,6 @@
         border: 3px solid #24C168;
     }
 
-
-
-    /*固定表格欄寬*/
-    table>thead>tr>th:nth-child(1) {
-        width: 10%;
-    }
-
-    table>thead>tr>th:nth-child(2) {
-        width: 60%;
-    }
-
-    table>thead>tr>th:nth-child(3) {
-        width: 25%;
-    }
-
-    table>thead>tr>th:nth-child(4) {
-        width: 5%;
-    }
-
-    table>thead>tr>th>div {
-        margin-left: 20px;
-    }
-
-    table>thead>tr>th:nth-child(n) {
-        /* font-size: 16pt;
-        font-weight: bold;
-        background-color: #ffbead;
-        text-align: center;*/
-
-    }
-
     /*背景圖放body避免手機轉橫向時背景圖無法完整顯示*/
     body {
         background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
@@ -70,6 +39,40 @@
         /*標題欄格線*/
         border: 1px solid #E48D70;
     }
+
+    /*固定表格欄寬*/
+    .bootstrap-table .fixed-table-container.fixed-height .table thead th:nth-child(1) {
+        width: 10%;
+    }
+
+    .bootstrap-table .fixed-table-container.fixed-height .table thead th:nth-child(2) {
+        width: 60%;
+    }
+
+    .bootstrap-table .fixed-table-container.fixed-height .table thead th:nth-child(3) {
+        width: 25%;
+    }
+
+    .bootstrap-table .fixed-table-container.fixed-height .table thead th:nth-child(4) {
+        width: 5%;
+        background-color: #AAA;
+    }
+
+    .bootstrap-table .fixed-table-container.fixed-height .table thead th>div {
+        margin-left: 20px;
+    }
+
+    .bootstrap-table .fixed-table-container.fixed-height .table thead th:last-child {
+        /* font-size: 16pt;
+        font-weight: bold;
+        background-color: #ffbead;
+        text-align: center;*/
+
+    }
+.table-responsive {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
 
     /*override card-view css*/
     .bootstrap-table .fixed-table-container.fixed-height.has-card-view {
@@ -549,7 +552,7 @@
 
         //因為.text()會刪掉icon所以沒辦法寫在CSS內，否則用button[name='btntoggle'] {...}寫在CSS內的media query就好
         if ($(window).width() < 768) {
-            $table.bootstrapTable('toggleView');    //讓小寬度的設備預設用卡片打開
+            $table.bootstrapTable('toggleView'); //讓小寬度的設備預設用卡片打開
             $("button[name='btnfullscreen']").text('');
             $("button[name='btntoggle']").text('');
             $("button[name='btnmyExport']").text('');
