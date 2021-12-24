@@ -225,7 +225,7 @@
                     data-show-button-text="true" 顯示button script中的button text
                     data-buttons-class="mybtnclass" 自訂button樣式，影響整個table的btn物件
                 -->
-                <table id="table" data-locale="zh-TW" data-search="true" data-search-highlight="true" data-height="700" data-pagination="true" data-page-size="10" data-page-list="[5, 10, 20, 50, ALL]" data-pagination-pre-text="上一頁" data-pagination-next-text="下一頁" data-show-export="true" data-export-data-type="all" data-sort-name="prizedate" data-sort-order="desc" data-buttons="buttons" data-show-button-text="true" data-buttons-class="mybtnclass">
+                <table id="table" data-locale="zh-TW" data-search="true" data-search-highlight="true" data-height="700" data-pagination="true" data-page-size="10" data-page-list="[5, 10, 20, 50, ALL]" data-pagination-pre-text="上一頁" data-pagination-next-text="下一頁" data-export-data-type="all" data-sort-name="prizedate" data-sort-order="desc" data-buttons="buttons" data-show-button-text="true" data-buttons-class="mybtnclass">
                     <thead>
                         <tr>
                             <th data-field="prizedate" data-sortable="true">得獎日期</th>
@@ -546,24 +546,53 @@
         $table.bootstrapTable({ data: data });
         console.log('showsomething');
 
-
+        //因為.text()會刪掉icon所以沒辦法寫在CSS內，否則用button[name='btntoggle'] {...}寫在CSS內的media query就好
         if ($(window).width() < 768) {
-            $table.bootstrapTable('toggleView');
-            console.log('sss' + $("button[name='btntoggle']").text());
+            $table.bootstrapTable('toggleView');    //讓小寬度的設備預設用卡片打開
+            $("button[name='btnfullscreen']").text('');
             $("button[name='btntoggle']").text('');
+            $("button[name='btnmyExport']").text('');
+            $("button[name='btnfullscreen']").addClass("fa fa-arrows-alt");
             $("button[name='btntoggle']").addClass("fa fa-toggle-on");
+            $("button[name='btnmyExport']").addClass("fa fa-download");
+        }
+        if ($(window).width() >= 768) {
+            $("button[name='btnfullscreen']").text('全螢幕');
+            $("button[name='btntoggle']").text('切換顯示');
+            $("button[name='btnmyExport']").text('匯出Excel');
+            $("button[name='btnfullscreen']").addClass("fa fa-arrows-alt");
+            $("button[name='btntoggle']").addClass("fa fa-toggle-on");
+            $("button[name='btnmyExport']").addClass("fa fa-download");
         }
     });
 
     var changesize = 0;
     $(window).resize(function() {
-        if ($(window).width() < 768 && changesize == 0) {
-            $table.bootstrapTable('toggleView');
-            changesize = changesize + 1;
-        } else if (($(window).width() >= 768 && changesize == 1)) {
-            $table.bootstrapTable('toggleView');
-            changesize = changesize - 1;
+        // if ($(window).width() < 768 && changesize == 0) {
+        //     $table.bootstrapTable('toggleView');
+        //     changesize = changesize + 1;
+        // } else if (($(window).width() >= 768 && changesize == 1)) {
+        //     $table.bootstrapTable('toggleView');
+        //     changesize = changesize - 1;
+        // }
+
+        if ($(window).width() < 768) {
+            // $table.bootstrapTable('toggleView');
+            $("button[name='btnfullscreen']").text('');
+            $("button[name='btntoggle']").text('');
+            $("button[name='btnmyExport']").text('');
+
+            $("button[name='btnfullscreen']").addClass("fa fa-arrows-alt");
+            $("button[name='btntoggle']").addClass("fa fa-toggle-on");
+            $("button[name='btnmyExport']").addClass("fa fa-download");
         }
+        if ($(window).width() >= 768) {
+            $("button[name='btnfullscreen']").text('全螢幕');
+            $("button[name='btntoggle']").text('切換顯示');
+            $("button[name='btnmyExport']").text('匯出Excel');
+        }
+
+
     });
 
     //測試用自訂按鈕觸發toggleView
@@ -591,7 +620,7 @@
                 icon: 'fa-toggle-off',
                 event: function() {
                     $table.bootstrapTable('toggleView');
-                    console.log('log: btntoggle, $flag_btntoggle:'+$flag_btntoggle);
+                    console.log('log: btntoggle, $flag_btntoggle:' + $flag_btntoggle);
                     var thisbtn = $("button[name='btntoggle']");
                     // 不知道為什麼一開始的文字是" 切換成卡片"，前面會多一個空格
 
@@ -599,11 +628,11 @@
                     if ($flag_btntoggle == 0) {
                         thisbtn.removeClass("fa fa-toggle-off");
                         thisbtn.addClass("fa fa-toggle-on");
-                        $flag_btntoggle = $flag_btntoggle +1;
-                    }else{
+                        $flag_btntoggle = $flag_btntoggle + 1;
+                    } else {
                         thisbtn.removeClass("fa fa-toggle-on");
                         thisbtn.addClass("fa fa-toggle-off");
-                        $flag_btntoggle = $flag_btntoggle -1;
+                        $flag_btntoggle = $flag_btntoggle - 1;
                     }
 
 
